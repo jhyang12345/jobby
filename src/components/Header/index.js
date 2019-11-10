@@ -22,7 +22,7 @@ const Header = styled.div`
   font-weight: bold;
   color: #fff;
   background-color: #14484f;
-  box-shadow: 0px 1px 3px 3px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 1px 2px 2px rgba(0, 0, 0, 0.25);
 `;
 
 export default HeaderComponent
