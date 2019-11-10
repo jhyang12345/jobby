@@ -28,13 +28,13 @@ class SideMenu extends React.Component {
             </span>
           }
         >
-          <Menu.ItemGroup key="g1" title="Item 1">
-            <Menu.Item key="1">Option 1</Menu.Item>
-            <Menu.Item key="2">Option 2</Menu.Item>
+          <Menu.ItemGroup key="g1" title="RDS to Hive">
+            <Menu.Item key="1">Create Table</Menu.Item>
+            <Menu.Item key="2">Select Table</Menu.Item>
           </Menu.ItemGroup>
-          <Menu.ItemGroup key="g2" title="Item 2">
-            <Menu.Item key="3">Option 3</Menu.Item>
-            <Menu.Item key="4">Option 4</Menu.Item>
+          <Menu.ItemGroup key="g2" title="Hive to RDS">
+            <Menu.Item key="3">Create Table</Menu.Item>
+            <Menu.Item key="4">Select Table</Menu.Item>
           </Menu.ItemGroup>
         </SubMenu>
       </Menu>
