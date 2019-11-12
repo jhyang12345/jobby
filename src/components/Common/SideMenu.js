@@ -1,4 +1,4 @@
-
+import styled from 'styled-components'
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Menu, Icon } from 'antd';
@@ -12,7 +12,7 @@ class SideMenu extends React.Component {
 
   render() {
     return (
-      <Menu
+      <StyledMenu
         onClick={this.handleClick}
         style={{ width: 256 }}
         defaultSelectedKeys={['1']}
@@ -37,10 +37,15 @@ class SideMenu extends React.Component {
             <Menu.Item key="4">Select Table</Menu.Item>
           </Menu.ItemGroup>
         </SubMenu>
-      </Menu>
+      </StyledMenu>
     );
   }
 }
+
+const StyledMenu = styled(Menu)`
+  height: 100%;
+  position: absolute;
+`
 
 export default SideMenu
           

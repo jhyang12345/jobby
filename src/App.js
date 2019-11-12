@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components'
-import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header'
 import Common from './components/Common'
@@ -11,6 +10,7 @@ function App() {
       <Header />
       <AppContainer>
         <Common.SideMenu />
+
       </AppContainer>
     </div>
   );
