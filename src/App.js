@@ -9,8 +9,9 @@ function App() {
     <div className="App">
       <Header />
       <AppContainer>
-        <Common.SideMenu />
 
+        <Common.SideMenu />
+        <Common.Container />
       </AppContainer>
     </div>
   );
