@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import './App.css';
 import Header from './components/Header'
 import Common from './components/Common'
+import TextArea from './components/TextArea'
 
 function App() {
   return (
@@ -11,7 +12,10 @@ function App() {
       <AppContainer>
 
         <Common.SideMenu />
-        <Common.Container />
+          <Common.Container>
+            <TextArea.Component/>
+
+          </Common.Container>
       </AppContainer>
     </div>
   );
