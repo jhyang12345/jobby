@@ -19,6 +19,7 @@ class TextAreaComponent extends React.Component {
                 height={"720px"}>
                 <TextArea
                     spellCheck ={false}
+                    focused={this.state.focused}
                     onFocus={() => this.setFocus(true)}
                     onBlur={() => this.setFocus(false)}
                     >
@@ -33,12 +34,12 @@ const TextAreaContainer = styled.div`
     margin: 12px;
     border-radius: 12px;
     border: ${
-      props => {
+    props => {
         return props.focused === true
-        ? "1px #09d3ac solid"
-        : "1px #AAA solid"    
-      }
-    };
+            ? "2px #afccd3 solid"
+            : "1px #AAA solid"
+    }
+};
 `
 
 const TextArea = styled.textarea`
@@ -49,7 +50,7 @@ const TextArea = styled.textarea`
     background-color: transparent;
     resize: none;
     outline: none;
-    padding: 12px;
+    padding: ${props => props.focused === true ? "11px": "12px"};
 `
 
 export default TextAreaComponent
