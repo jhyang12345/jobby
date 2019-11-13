@@ -18,7 +18,7 @@ class TextAreaComponent extends React.Component {
                 focused={this.state.focused}
                 height={"720px"}>
                 <TextArea
-
+                    spellCheck ={false}
                     onFocus={() => this.setFocus(true)}
                     onBlur={() => this.setFocus(false)}
                     >
