@@ -13,6 +13,8 @@ class TextAreaComponent extends React.Component {
     }
 
     render() {
+        const { placeholder } = this.props
+
         return (
             <TextAreaContainer
                 focused={this.state.focused}
@@ -20,6 +22,7 @@ class TextAreaComponent extends React.Component {
                 <TextArea
                     spellCheck ={false}
                     focused={this.state.focused}
+                    placeholder={placeholder}
                     onFocus={() => this.setFocus(true)}
                     onBlur={() => this.setFocus(false)}
                     >

@@ -13,7 +13,8 @@ function App() {
 
         <Common.SideMenu />
           <Common.Container>
-            <TextArea.Component/>
+            <TextArea.Component
+                placeholder={"CREATE TABLE..."}/>
 
           </Common.Container>
       </AppContainer>
