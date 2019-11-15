@@ -1,7 +1,9 @@
 import TextAreaComponent from "./TextArea";
+import TextAreaContainer from './Container'
 
 const TextArea = {
-    Component: TextAreaComponent
+    Component: TextAreaComponent,
+    Container: TextAreaContainer,
 }
 
 export default TextArea
