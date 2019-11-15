@@ -8,16 +8,22 @@ class ContainerComponent extends React.Component {
     render() {
         return (
             <Container>
-                <div>Text</div>
-                <div>Another test</div>
+                <Content>Text</Content>
+                <Content>Another test</Content>
             </Container>
         )
     }
 }
 
 const Container = styled.div`
+  display: flex;
   flex: 1;
-  flex-direction: row;
+  flex-direction: column;
+`
+
+const Content = styled.div`
+  flex: 1;
+  display: inline-block;
 `
 
 export default ContainerComponent
