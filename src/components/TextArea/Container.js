@@ -3,10 +3,17 @@ import Common from '../Common'
 import TextArea from '../TextArea'
 import styled from 'styled-components'
 
+const maximumContainerWidth = 1000
+
 class ContainerComponent extends React.Component {
 
     constructor(props) {
         super(props)
+
+        this.state = {
+            flexDirection: 'row',
+        }
+
         this.containerRef = React.createRef()
     }
 
@@ -17,13 +24,25 @@ class ContainerComponent extends React.Component {
     handleContainerResize = () => {
         const curElem = this.containerRef.current
         const width = curElem.offsetWidth;
-        console.log(width)
+
+        if (width < maximumContainerWidth) {
+            this.setState(() => ({
+                flexDirection: 'column',
+            }))
+        } else {
+            this.setState(() => ({
+                flexDirection: 'row',
+            }))
+        }
     }
 
     render() {
+        const { flexDirection } = this.state
+
         return (
             <Container
-                ref={this.containerRef}>
+                ref={this.containerRef}
+                flexDirection={flexDirection}>
                 <Content>Text</Content>
                 <Content>Another test</Content>
             </Container>
@@ -38,7 +57,7 @@ class ContainerComponent extends React.Component {
 const Container = styled.div`
   display: flex;
   flex: 1;
-  flex-direction: column;
+  flex-direction: ${props => props.flexDirection};
 `
 
 const Content = styled.div`
