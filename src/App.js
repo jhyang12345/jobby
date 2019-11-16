@@ -1,23 +1,25 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import './App.css';
 import Header from './components/Header'
 import Common from './components/Common'
 import TextArea from './components/TextArea'
+import RDSToHive from "./components/RDSToHive";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <AppContainer>
-
-        <Common.SideMenu />
-          <Common.Container>
-              <TextArea.Container />
-
-          </Common.Container>
-      </AppContainer>
-    </div>
+    <Router>
+        <div className="App">
+            <Header />
+            <AppContainer>
+                <Common.SideMenu />
+                <Common.Container>
+                    <Route path="/" exact component={RDSToHive.Component} />
+                </Common.Container>
+            </AppContainer>
+        </div>
+    </Router>
   );
 }
 

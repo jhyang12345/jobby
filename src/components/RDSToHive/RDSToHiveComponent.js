@@ -11,3 +11,5 @@ class RDSToHiveComponent extends React.Component {
         )
     }
 }
+
+export default RDSToHiveComponent

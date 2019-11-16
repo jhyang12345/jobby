@@ -43,8 +43,6 @@ class ContainerComponent extends React.Component {
             <Container
                 ref={this.containerRef}
                 flexDirection={flexDirection}>
-                <Content>Text</Content>
-                <Content>Another test</Content>
             </Container>
         )
     }
