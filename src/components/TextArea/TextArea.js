@@ -6,6 +6,10 @@ class TextAreaComponent extends React.Component {
         focused: false,
     }
 
+    componentDidMount() {
+        console.log("TextArea Mounted")
+    }
+
     setFocus = (focused) => {
         this.setState(() => ({
             focused,
@@ -33,6 +37,7 @@ class TextAreaComponent extends React.Component {
 }
 
 const TextAreaContainer = styled.div`
+    flex: 1;
     height: ${props => props.height};
     margin: 12px;
     border-radius: 12px;

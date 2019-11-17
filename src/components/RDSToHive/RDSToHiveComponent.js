@@ -5,9 +5,15 @@ import TextArea from '../TextArea'
 class RDSToHiveComponent extends React.Component {
     render() {
         return (
-            <TextArea.Component
-                placeholder={"CREATE TABLE"}>
-            </TextArea.Component>
+            <TextArea.Container>
+                <TextArea.Component
+                    placeholder={"CREATE TABLE"}>
+                </TextArea.Component>
+                <TextArea.Component
+                    placeholder={"CREATE TABLE"}>
+                </TextArea.Component>
+
+            </TextArea.Container>
         )
     }
 }

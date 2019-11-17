@@ -19,6 +19,7 @@ class ContainerComponent extends React.Component {
 
     componentDidMount = () => {
         window.addEventListener('resize', this.handleContainerResize)
+        console.log("Container Mounted")
     }
 
     handleContainerResize = () => {
@@ -43,6 +44,7 @@ class ContainerComponent extends React.Component {
             <Container
                 ref={this.containerRef}
                 flexDirection={flexDirection}>
+                {this.props.children}
             </Container>
         )
     }
