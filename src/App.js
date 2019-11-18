@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import './App.css';
 import Header from './components/Header'
 import Common from './components/Common'
-import TextArea from './components/TextArea'
-import RDSToHive from "./components/RDSToHive";
+import RDSToHive from "./components/RDSToHive"
 
 function App() {
   return (

@@ -56,6 +56,9 @@ class ContainerComponent extends React.Component {
 
 const Container = styled.div`
   display: flex;
+  width: 100%;
+  height: 100%;
+  align-content: center;
   flex: 1;
   flex-direction: ${props => props.flexDirection};
 `
