@@ -12,7 +12,6 @@ function App() {
         <div className="App">
             <Header />
             <AppContainer>
-                <Common.SideMenu />
                 <Common.Container>
                     <Route path="/" exact component={RDSToHive.Component} />
                 </Common.Container>

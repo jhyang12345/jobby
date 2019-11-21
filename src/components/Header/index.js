@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import Common from '../Common'
 import styled from 'styled-components'
 
 class HeaderComponent extends Component {
     render() {
         return (
             <Header>
-                Jobby
+                <Common.SideMenu />
             </Header>
         )
     }

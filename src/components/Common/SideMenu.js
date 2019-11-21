@@ -14,29 +14,16 @@ class SideMenu extends React.Component {
     return (
       <StyledMenu
         onClick={this.handleClick}
-        style={{ width: 256 }}
-        defaultSelectedKeys={['1']}
-        defaultOpenKeys={['sub1']}
-        mode="inline"
+        mode="horizontal"
       >
-        <SubMenu
-          key="sub1"
-          title={
-            <span>
-              <Icon type="appstore" />
-              <span>Helpers</span>
-            </span>
-          }
-        >
-          <Menu.ItemGroup key="g1" title="RDS to Hive">
+          <StyledSubMenu key="g1" title="RDS to Hive">
             <Menu.Item key="1">Create Table</Menu.Item>
             <Menu.Item key="2">Select Table</Menu.Item>
-          </Menu.ItemGroup>
-          <Menu.ItemGroup key="g2" title="Hive to RDS">
+          </StyledSubMenu>
+          <StyledSubMenu key="g2" title="Hive to RDS">
             <Menu.Item key="3">Create Table</Menu.Item>
             <Menu.Item key="4">Select Table</Menu.Item>
-          </Menu.ItemGroup>
-        </SubMenu>
+          </StyledSubMenu>
       </StyledMenu>
     );
   }
@@ -44,7 +31,23 @@ class SideMenu extends React.Component {
 
 const StyledMenu = styled(Menu)`
   height: 100%;
-  position: absolute;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: none;
+  margin-right: 24px;
+  float: right;
+`
+
+const StyledSubMenu = styled(SubMenu)`
+  height: 100%;
+  line-height: 60px;
+  margin-right: 12px;
+  &>div:hover {
+    color: rgba(255, 255, 255, 1.0) !important;
+  }
+  &:hover {
+    border-bottom-color: #FFF !important;
+  }
 `
 
 export default SideMenu
