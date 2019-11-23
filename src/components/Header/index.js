@@ -18,6 +18,7 @@ class HeaderComponent extends Component {
 
 const Header = styled.div`
   position: fixed;
+  font-family: 'Roboto Mono', monospace;
   top: 0px;
   left: 0px;
   width: 100%;

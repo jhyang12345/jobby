@@ -19,14 +19,18 @@ class ContainerComponent extends React.Component {
 
     componentDidMount = () => {
         window.addEventListener('resize', this.handleContainerResize)
-        console.log("Container Mounted")
+        this.handleContainerResize()
     }
 
     handleContainerResize = () => {
         const curElem = this.containerRef.current
         const width = curElem.offsetWidth;
 
-        if (width < maximumContainerWidth) {
+        if (this.props.flexDirection !== undefined) {
+            this.setState(() => ({
+                flexDirection: this.props.flexDirection,
+            }))
+        } else if (width < maximumContainerWidth) {
             this.setState(() => ({
                 flexDirection: 'column',
             }))

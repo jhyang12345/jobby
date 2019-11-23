@@ -6,16 +6,25 @@ import styled from 'styled-components'
 class RDSToHiveComponent extends React.Component {
     render() {
         return (
-            <TextArea.Container>
-                <TextArea.Component
-                    placeholder={"CREATE TABLE"}>
-                </TextArea.Component>
-                <TextArea.Component
-                    placeholder={"CREATE TABLE"}>
-                </TextArea.Component>
-            </TextArea.Container>
+            <PageContainer>
+                <TextArea.Container
+                    flexDirection={'column'}>
+                    <TextArea.Component
+                        placeholder={"CREATE TABLE"}>
+                    </TextArea.Component>
+                    <TextArea.Component
+                        placeholder={"CREATE TABLE"}>
+                    </TextArea.Component>
+                </TextArea.Container>
+            </PageContainer>
+
         )
     }
 }
+
+const PageContainer = styled.div`
+  margin: 0px auto;
+  max-width: 1080px;
+`
 
 export default RDSToHiveComponent
