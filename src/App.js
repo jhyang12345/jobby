@@ -14,6 +14,10 @@ function App() {
             <AppContainer>
                 <Common.Container>
                     <Route path="/" exact component={RDSToHive.Component} />
+                    <Route path="/rdstohive/create" exact component={RDSToHive.Component} />
+                    <Route path="/rdstohive/select" exact component={RDSToHive.Component} />
+                    <Route path="/hivetords/create" exact component={RDSToHive.Component} />
+                    <Route path="/hivetords/select" exact component={RDSToHive.Component} />
                 </Common.Container>
             </AppContainer>
         </div>
