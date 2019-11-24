@@ -5,11 +5,14 @@ import './App.css';
 import Header from './components/Header'
 import Common from './components/Common'
 import RDSToHive from "./components/RDSToHive"
+import { createGlobalStyle } from 'styled-components'
 
 function App() {
   return (
     <Router>
+
         <div className="App">
+            <GlobalStyle />
             <Header />
             <AppContainer>
                 <Common.Container>
@@ -29,6 +32,12 @@ const AppContainer = styled.div`
   width: 100%;
   height: 100%;
   padding-top: 60px;
+`
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: 'Roboto Mono', monospace;
+  }
 `
 
 export default App;

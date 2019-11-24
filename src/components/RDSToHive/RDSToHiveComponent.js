@@ -13,6 +13,9 @@ class RDSToHiveComponent extends React.Component {
                     <TextArea.Component
                         placeholder={"CREATE TABLE"}>
                     </TextArea.Component>
+                    <RunButton>
+                        RUN
+                    </RunButton>
                     <TextArea.Component
                         placeholder={"CREATE TABLE"}>
                     </TextArea.Component>
@@ -26,6 +29,19 @@ class RDSToHiveComponent extends React.Component {
 const PageContainer = styled.div`
   margin: 0px auto;
   max-width: 1080px;
+`
+
+const RunButton = styled.div`
+  display: inline-block;
+  align-self: center;
+  padding: 6px 24px;
+  height: 42px;
+  line-height: 30px;
+  background-color: #326fad;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #FFF;
 `
 
 export default RDSToHiveComponent
