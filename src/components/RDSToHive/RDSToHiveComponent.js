@@ -8,6 +8,7 @@ class RDSToHiveComponent extends React.Component {
         return (
             <PageContainer>
                 <TextArea.Container
+                    height={'1200px'}
                     flexDirection={'column'}>
                     <TextArea.Component
                         placeholder={"CREATE TABLE"}>

@@ -46,6 +46,7 @@ class ContainerComponent extends React.Component {
 
         return (
             <Container
+                {...this.props}
                 ref={this.containerRef}
                 flexDirection={flexDirection}>
                 {this.props.children}
@@ -61,7 +62,7 @@ class ContainerComponent extends React.Component {
 const Container = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
+  height: ${props => props.height === undefined ? '100%' : props.height};
   align-content: center;
   flex: 1;
   flex-direction: ${props => props.flexDirection};
