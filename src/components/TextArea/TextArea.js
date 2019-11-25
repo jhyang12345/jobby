@@ -39,7 +39,7 @@ class TextAreaComponent extends React.Component {
 const TextAreaContainer = styled.div`
     flex: 1;
     height: ${props => props.height};
-    margin: 12px;
+    margin: ${props => props.focused === true ? "11px": "12px"};
     border-radius: 12px;
     border: ${
     props => {
@@ -58,7 +58,7 @@ const TextArea = styled.textarea`
     background-color: transparent;
     resize: none;
     outline: none;
-    padding: ${props => props.focused === true ? "11px": "12px"};
+    padding: 12px;
 `
 
 export default TextAreaComponent

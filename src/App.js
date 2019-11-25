@@ -38,6 +38,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Roboto Mono', monospace;
   }
+  
+  div,textarea {
+    box-sizing: border-box;
+  }
 `
 
 export default App;
