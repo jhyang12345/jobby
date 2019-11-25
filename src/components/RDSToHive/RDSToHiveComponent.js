@@ -67,6 +67,9 @@ const RunButton = styled.div`
   font-weight: bold;
   font-size: 20px;
   color: #FFF;
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const mapStateToProps = ({transformRDSHive}) => {
