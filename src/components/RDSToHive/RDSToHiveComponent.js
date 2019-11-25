@@ -4,6 +4,11 @@ import TextArea from '../TextArea'
 import styled from 'styled-components'
 
 class RDSToHiveComponent extends React.Component {
+
+    runButtonHandler = () => {
+        console.log("Button Clicked")
+    }
+
     render() {
         return (
             <PageContainer>
@@ -13,7 +18,9 @@ class RDSToHiveComponent extends React.Component {
                     <TextArea.Component
                         placeholder={"CREATE TABLE"}>
                     </TextArea.Component>
-                    <RunButton>
+                    <RunButton
+                        onClick={this.runButtonHandler}
+                        >
                         RUN
                     </RunButton>
                     <TextArea.Component

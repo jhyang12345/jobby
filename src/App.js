@@ -6,25 +6,34 @@ import Header from './components/Header'
 import Common from './components/Common'
 import RDSToHive from "./components/RDSToHive"
 import { createGlobalStyle } from 'styled-components'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import reducer from './reducers'
+import middleware from './middleware'
+
+
+const store = createStore(reducer, middleware)
 
 function App() {
   return (
-    <Router>
+      <Provider store={store}>
+          <Router>
+              <div className="App">
+                  <GlobalStyle />
+                  <Header />
+                  <AppContainer>
+                      <Common.Container>
+                          <Route path="/" exact component={RDSToHive.Component} />
+                          <Route path="/rdstohive/create" exact component={RDSToHive.Component} />
+                          <Route path="/rdstohive/select" exact component={RDSToHive.Component} />
+                          <Route path="/hivetords/create" exact component={RDSToHive.Component} />
+                          <Route path="/hivetords/select" exact component={RDSToHive.Component} />
+                      </Common.Container>
+                  </AppContainer>
+              </div>
+          </Router>
+      </Provider>
 
-        <div className="App">
-            <GlobalStyle />
-            <Header />
-            <AppContainer>
-                <Common.Container>
-                    <Route path="/" exact component={RDSToHive.Component} />
-                    <Route path="/rdstohive/create" exact component={RDSToHive.Component} />
-                    <Route path="/rdstohive/select" exact component={RDSToHive.Component} />
-                    <Route path="/hivetords/create" exact component={RDSToHive.Component} />
-                    <Route path="/hivetords/select" exact component={RDSToHive.Component} />
-                </Common.Container>
-            </AppContainer>
-        </div>
-    </Router>
   );
 }
 

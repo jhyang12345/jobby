@@ -24,6 +24,10 @@ function setToText(text) {
     }
 }
 
+export function handleRDSToHiveCreate() {
+
+}
+
 export default function transformRDSHive(state=defaultState, action) {
     switch (action.type) {
 
