@@ -1,3 +1,6 @@
+import { getParsedResult } from "../utils/requestHandler"
+
+
 let defaultState = {
     fromText: "",
     toText: "",
@@ -8,7 +11,7 @@ let defaultState = {
 
 const UPDATE_FROM_TEXT = "UPDATE_FROM_TEXT"
 
-function setFromText(text) {
+export function setFromText(text) {
     return {
         type: UPDATE_FROM_TEXT,
         text,
@@ -17,20 +20,54 @@ function setFromText(text) {
 
 const UPDATE_TO_TEXT = "UPDATE_TO_TEXT"
 
-function setToText(text) {
+export function setToText(text) {
     return {
         type: UPDATE_TO_TEXT,
         text,
     }
 }
 
-export function handleRDSToHiveCreate() {
+const SET_PENDING = "SET_PENDING"
 
+export function setPending(pending) {
+    return {
+        type: SET_PENDING,
+        pending
+    }
+}
+
+export function handleRDSToHiveCreate(text) {
+    return (dispatch) => {
+        dispatch(setPending(true))
+        return getParsedResult()
+            .then(result => {
+                dispatch(setToText("Text Set"))
+                dispatch(setPending(false))
+            })
+
+    }
 }
 
 export default function transformRDSHive(state=defaultState, action) {
     switch (action.type) {
-
+        case UPDATE_FROM_TEXT: {
+            return {
+                ...state,
+                fromText: action.text
+            }
+        }
+        case UPDATE_TO_TEXT: {
+            return {
+                ...state,
+                toText: action.text
+            }
+        }
+        case SET_PENDING: {
+            return {
+                ...state,
+                pending: action.pending
+            }
+        }
         default:
             return state
     }

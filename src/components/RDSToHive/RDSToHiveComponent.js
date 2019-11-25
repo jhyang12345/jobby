@@ -2,21 +2,37 @@ import React from 'react'
 import Common from '../Common'
 import TextArea from '../TextArea'
 import styled from 'styled-components'
+import { setFromText, handleRDSToHiveCreate } from "../../reducers/TransformRDSHive"
+import { connect } from 'react-redux'
 
 class RDSToHiveComponent extends React.Component {
 
     runButtonHandler = () => {
+        const { dispatch } = this.props
+
         console.log("Button Clicked")
+        dispatch(handleRDSToHiveCreate())
+    }
+
+    handleFromTextChange = (evt) => {
+        const { dispatch } = this.props
+        const text = evt.target.value
+        dispatch(setFromText(text))
     }
 
     render() {
+        const { fromText, toText } = this.props
+
         return (
             <PageContainer>
                 <TextArea.Container
                     height={'1200px'}
                     flexDirection={'column'}>
                     <TextArea.Component
-                        placeholder={"CREATE TABLE"}>
+                        placeholder={"CREATE TABLE"}
+                        value={fromText}
+                        onChange={this.handleFromTextChange}
+                        >
                     </TextArea.Component>
                     <RunButton
                         onClick={this.runButtonHandler}
@@ -24,11 +40,13 @@ class RDSToHiveComponent extends React.Component {
                         RUN
                     </RunButton>
                     <TextArea.Component
-                        placeholder={"CREATE TABLE"}>
+                        placeholder={"CREATE TABLE"}
+                        value={toText}
+                        onChange={this.handleFromTextChange}
+                    >
                     </TextArea.Component>
                 </TextArea.Container>
             </PageContainer>
-
         )
     }
 }
@@ -51,4 +69,11 @@ const RunButton = styled.div`
   color: #FFF;
 `
 
-export default RDSToHiveComponent
+const mapStateToProps = ({transformRDSHive}) => {
+    const { fromText, toText } = transformRDSHive
+    return {
+        fromText,
+        toText,
+    }
+}
+export default connect(mapStateToProps)(RDSToHiveComponent)

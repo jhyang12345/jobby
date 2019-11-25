@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import React from 'react';
 
+
 class TextAreaComponent extends React.Component {
     state = {
         focused: false,
@@ -16,6 +17,7 @@ class TextAreaComponent extends React.Component {
         }))
     }
 
+
     render() {
         const { placeholder } = this.props
 
@@ -27,8 +29,10 @@ class TextAreaComponent extends React.Component {
                     spellCheck ={false}
                     focused={this.state.focused}
                     placeholder={placeholder}
+                    onChange={this.props.onChange}
                     onFocus={() => this.setFocus(true)}
                     onBlur={() => this.setFocus(false)}
+                    value={this.props.value}
                     >
                 </TextArea>
             </TextAreaContainer>
