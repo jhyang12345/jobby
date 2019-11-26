@@ -24,6 +24,8 @@ class SideMenu extends React.Component {
             <Menu.Item key="3">Create Table</Menu.Item>
             <Menu.Item key="4">Select Table</Menu.Item>
           </StyledSubMenu>
+          <StyledSubMenu key="g3" title="Wiki Table">
+          </StyledSubMenu>
       </StyledMenu>
     );
   }
