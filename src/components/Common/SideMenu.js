@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import React from 'react';
 import 'antd/dist/antd.css';
 import { Menu, Icon } from 'antd';
+import { withRouter } from 'react-router-dom'
 
 const { SubMenu } = Menu;
 
@@ -10,21 +11,35 @@ class SideMenu extends React.Component {
     console.log('click ', e);
   };
 
+  menuClickHandler = () => {
+      console.log("Clicked", this.props)
+  }
+
   render() {
     return (
       <StyledMenu
-        onClick={this.handleClick}
         mode="horizontal"
       >
           <StyledSubMenu key="g1" title="RDS to Hive">
-            <Menu.Item key="1">Create Table</Menu.Item>
-            <Menu.Item key="2">Select Table</Menu.Item>
+            <Menu.Item key="1"
+               onClick={this.menuClickHandler}>
+               Create Table
+            </Menu.Item>
+            <Menu.Item key="2">
+                Select Table</Menu.Item>
           </StyledSubMenu>
           <StyledSubMenu key="g2" title="Hive to RDS">
-            <Menu.Item key="3">Create Table</Menu.Item>
-            <Menu.Item key="4">Select Table</Menu.Item>
+            <Menu.Item key="3"
+                onClick={this.menuClickHandler}>
+                Create Table
+            </Menu.Item>
+            <Menu.Item key="4"
+                onClick={this.menuClickHandler}>
+                Select Table
+            </Menu.Item>
           </StyledSubMenu>
-          <StyledSubMenu key="g3" title="Wiki Table">
+          <StyledSubMenu key="g3" title="Wiki Table"
+            onTitleClick={this.menuClickHandler}>
           </StyledSubMenu>
       </StyledMenu>
     );
@@ -52,5 +67,5 @@ const StyledSubMenu = styled(SubMenu)`
   }
 `
 
-export default SideMenu
+export default withRouter(SideMenu)
           
