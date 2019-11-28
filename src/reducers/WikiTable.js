@@ -9,34 +9,34 @@ let defaultState = {
     succeeded: false, // only matters if translationComplete is true
 }
 
-const UPDATE_FROM_TEXT_RDS_HIVE = "UPDATE_FROM_TEXT_RDS_HIVE"
+const UPDATE_FROM_TEXT_WIKI_TABLE = "UPDATE_FROM_TEXT_WIKI_TABLE"
 
 export function setFromText(text) {
     return {
-        type: UPDATE_FROM_TEXT_RDS_HIVE,
+        type: UPDATE_FROM_TEXT_WIKI_TABLE,
         text,
     }
 }
 
-const UPDATE_TO_TEXT_RDS_HIVE = "UPDATE_TO_TEXT_RDS_HIVE"
+const UPDATE_TO_TEXT_WIKI_TABLE = "UPDATE_TO_TEXT_WIKI_TABLE"
 
 export function setToText(text) {
     return {
-        type: UPDATE_TO_TEXT_RDS_HIVE,
+        type: UPDATE_TO_TEXT_WIKI_TABLE,
         text,
     }
 }
 
-const SET_PENDING_RDS_HIVE = "SET_PENDING_RDS_HIVE"
+const SET_PENDING_WIKI_TABLE = "SET_PENDING_WIKI_TABLE"
 
 export function setPending(pending) {
     return {
-        type: SET_PENDING_RDS_HIVE,
+        type: SET_PENDING_WIKI_TABLE,
         pending
     }
 }
 
-export function handleRDSToHiveCreate(text) {
+export function handlePrestoWikiTable(text) {
     return (dispatch) => {
         dispatch(setPending(true))
         return getParsedResult()
@@ -48,21 +48,21 @@ export function handleRDSToHiveCreate(text) {
     }
 }
 
-export default function transformRDSHive(state=defaultState, action) {
+export default function transformCreateToWiki(state=defaultState, action) {
     switch (action.type) {
-        case UPDATE_FROM_TEXT_RDS_HIVE: {
+        case UPDATE_FROM_TEXT_WIKI_TABLE: {
             return {
                 ...state,
                 fromText: action.text
             }
         }
-        case UPDATE_TO_TEXT_RDS_HIVE: {
+        case UPDATE_TO_TEXT_WIKI_TABLE: {
             return {
                 ...state,
                 toText: action.text
             }
         }
-        case SET_PENDING_RDS_HIVE: {
+        case SET_PENDING_WIKI_TABLE: {
             return {
                 ...state,
                 pending: action.pending

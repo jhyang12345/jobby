@@ -5,6 +5,7 @@ import './App.css';
 import Header from './components/Header'
 import Common from './components/Common'
 import RDSToHive from "./components/RDSToHive"
+import WikiTable from "./components/WikiTable";
 import { createGlobalStyle } from 'styled-components'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
@@ -24,10 +25,12 @@ function App() {
                   <AppContainer>
                       <Common.Container>
                           <Route path="/" exact component={RDSToHive.Component} />
-                          <Route path="/rdstohive/create" exact component={RDSToHive.Component} />
-                          <Route path="/rdstohive/select" exact component={RDSToHive.Component} />
-                          <Route path="/hivetords/create" exact component={RDSToHive.Component} />
-                          <Route path="/hivetords/select" exact component={RDSToHive.Component} />
+                          <Route path="/rds_to_hive/create" exact component={RDSToHive.Component} />
+                          <Route path="/rds_to_hive/select" exact component={RDSToHive.Component} />
+                          <Route path="/hive_to_rds/create" exact component={RDSToHive.Component} />
+                          <Route path="/hive_to_rds/select" exact component={RDSToHive.Component} />
+                          <Route path="/wiki-table" exact component={WikiTable.Component} />
+
                       </Common.Container>
                   </AppContainer>
               </div>

@@ -11,8 +11,11 @@ class SideMenu extends React.Component {
     console.log('click ', e);
   };
 
-  menuClickHandler = () => {
-      console.log("Clicked", this.props)
+  generateMenuClickHandler = (toLink) => {
+      const { history } = this.props
+      return () => {
+          history.push(toLink)
+      }
   }
 
   render() {
@@ -22,24 +25,25 @@ class SideMenu extends React.Component {
       >
           <StyledSubMenu key="g1" title="RDS to Hive">
             <Menu.Item key="1"
-               onClick={this.menuClickHandler}>
+               onClick={this.generateMenuClickHandler("/rds_to_hive/create")}>
                Create Table
             </Menu.Item>
-            <Menu.Item key="2">
+            <Menu.Item key="2"
+               onClick={this.generateMenuClickHandler("/rds_to_hive/select")}>
                 Select Table</Menu.Item>
           </StyledSubMenu>
           <StyledSubMenu key="g2" title="Hive to RDS">
             <Menu.Item key="3"
-                onClick={this.menuClickHandler}>
+               onClick={this.generateMenuClickHandler("/hive_to_rds/create")}>
                 Create Table
             </Menu.Item>
             <Menu.Item key="4"
-                onClick={this.menuClickHandler}>
+               onClick={this.generateMenuClickHandler("/hive_to_rds/select")}>
                 Select Table
             </Menu.Item>
           </StyledSubMenu>
           <StyledSubMenu key="g3" title="Wiki Table"
-            onTitleClick={this.menuClickHandler}>
+            onTitleClick={this.generateMenuClickHandler("/wiki-table")}>
           </StyledSubMenu>
       </StyledMenu>
     );
