@@ -41,7 +41,8 @@ export function handlePrestoWikiTable(text) {
         dispatch(setPending(true))
         return getWikiTable(text)
             .then(result => {
-                dispatch(setToText("Text Set"))
+                const { body } = result
+                dispatch(setToText(body))
                 dispatch(setPending(false))
             })
     }

@@ -9,10 +9,10 @@ import transformCreateToWiki from "../../reducers/WikiTable";
 class WikiTableComponent extends React.Component {
 
     runButtonHandler = () => {
-        const { dispatch } = this.props
+        const { dispatch, fromText } = this.props
 
         console.log("Button Clicked")
-        dispatch(handlePrestoWikiTable())
+        dispatch(handlePrestoWikiTable(fromText))
     }
 
     handleFromTextChange = (evt) => {

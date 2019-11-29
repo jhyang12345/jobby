@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const apiEndPoint = 'http://localhost:8080'
+export const apiEndPoint = 'http://localhost:8000'
 
 async function dummyFunction() {
     return new Promise(
@@ -20,10 +20,15 @@ export async function getParsedResult(text) {
 
 export async function getWikiTable(text) {
     const url = apiEndPoint + "/create_wiki"
+    console.log("Text passed", text)
     const data = {
-        params: {},
-        body: text,
+        "params": {},
+        "body": text
     }
-    const response = await axios.post(url, data)
-    return response
+    const headers = {
+        'Access-Control-Allow-Origin': true,
+        'Content-Type': 'application/json'
+    }
+    const response = await axios.post(url, data, {headers})
+    return response.data
 }
