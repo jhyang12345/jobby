@@ -17,3 +17,13 @@ async function dummyFunction() {
 export async function getParsedResult(text) {
     return dummyFunction()
 }
+
+export async function getWikiTable(text) {
+    const url = apiEndPoint + "/create_wiki"
+    const data = {
+        params: {},
+        body: text,
+    }
+    const response = await axios.post(url, data)
+    return response
+}

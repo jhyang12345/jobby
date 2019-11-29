@@ -1,4 +1,4 @@
-import { getParsedResult } from "../utils/requestHandler"
+import { getWikiTable } from "../utils/requestHandler"
 
 
 let defaultState = {
@@ -39,12 +39,11 @@ export function setPending(pending) {
 export function handlePrestoWikiTable(text) {
     return (dispatch) => {
         dispatch(setPending(true))
-        return getParsedResult()
+        return getWikiTable(text)
             .then(result => {
                 dispatch(setToText("Text Set"))
                 dispatch(setPending(false))
             })
-
     }
 }
 

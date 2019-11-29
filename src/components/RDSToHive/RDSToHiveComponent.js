@@ -2,7 +2,7 @@ import React from 'react'
 import Common from '../Common'
 import TextArea from '../TextArea'
 import styled from 'styled-components'
-import { setFromText, handleRDSToHiveCreate } from "../../reducers/TransformRDSHive"
+import { setFromText, setToText, handleRDSToHiveCreate } from "../../reducers/TransformRDSHive"
 import { connect } from 'react-redux'
 
 class RDSToHiveComponent extends React.Component {
@@ -18,6 +18,12 @@ class RDSToHiveComponent extends React.Component {
         const { dispatch } = this.props
         const text = evt.target.value
         dispatch(setFromText(text))
+    }
+
+    handleToTextChange = (evt) => {
+        const { dispatch } = this.props
+        const text = evt.target.value
+        dispatch(setToText(text))
     }
 
     render() {
@@ -42,7 +48,7 @@ class RDSToHiveComponent extends React.Component {
                     <TextArea.Component
                         placeholder={"CREATE TABLE"}
                         value={toText}
-                        onChange={this.handleFromTextChange}
+                        onChange={this.handleToTextChange}
                     >
                     </TextArea.Component>
                 </TextArea.Container>
