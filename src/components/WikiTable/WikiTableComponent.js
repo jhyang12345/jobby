@@ -28,7 +28,13 @@ class WikiTableComponent extends React.Component {
     }
 
     render() {
-        const { fromText, toText } = this.props
+        const {
+            fromText,
+            toText,
+            pending,
+            succeeded,
+            updating,
+        } = this.props
 
         return (
             <PageContainer>
@@ -50,6 +56,9 @@ class WikiTableComponent extends React.Component {
                         placeholder={"CREATE TABLE"}
                         value={toText}
                         onChange={this.handleToTextChange}
+                        pending={pending}
+                        succeeded={succeeded}
+                        updating={updating}
                     >
                     </TextArea.Component>
                 </TextArea.Container>
@@ -80,10 +89,19 @@ const RunButton = styled.div`
 `
 
 const mapStateToProps = ({transformCreateToWiki}) => {
-    const { fromText, toText } = transformCreateToWiki
+    const {
+        fromText,
+        toText,
+        pending,
+        succeeded,
+        updating
+    } = transformCreateToWiki
     return {
         fromText,
         toText,
+        pending,
+        succeeded,
+        updating,
     }
 }
 export default connect(mapStateToProps)(WikiTableComponent)

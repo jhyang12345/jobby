@@ -5,9 +5,8 @@ let defaultState = {
     fromText: "",
     toText: "",
     pending: false,
-    translationComplete: false,
     succeeded: false, // only matters if translationComplete is true
-    updating: false,
+    updating: true,
 }
 
 const UPDATE_FROM_TEXT_WIKI_TABLE = "UPDATE_FROM_TEXT_WIKI_TABLE"
@@ -72,13 +71,14 @@ export function setUpdating(updating) {
 export function handlePrestoWikiTable(text) {
     return (dispatch) => {
         dispatch(setPending(true))
-        dispatch(setUpdating(false))
+
         return getWikiTable(text)
             .then(result => {
                 console.log("Response: ", result)
                 const { body, flag } = result
                 dispatch(setToText(body))
                 dispatch(setPending(false))
+                dispatch(setUpdating(false))
                 dispatch(setSucceeded(flag))
             })
     }
