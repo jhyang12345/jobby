@@ -42,7 +42,7 @@ class WikiTableComponent extends React.Component {
                     height={'1200px'}
                     flexDirection={'column'}>
                     <TextArea.Component
-                        placeholder={"CREATE TABLE"}
+                        placeholder={"CREATE TABLE..."}
                         value={fromText}
                         onChange={this.handleFromTextChange}
                     >
@@ -53,12 +53,13 @@ class WikiTableComponent extends React.Component {
                         RUN
                     </RunButton>
                     <TextArea.Component
-                        placeholder={"CREATE TABLE"}
+                        placeholder={"WIKI MARKDOWN..."}
                         value={toText}
                         onChange={this.handleToTextChange}
                         pending={pending}
                         succeeded={succeeded}
                         updating={updating}
+                        enableCopy={true}
                     >
                     </TextArea.Component>
                 </TextArea.Container>
