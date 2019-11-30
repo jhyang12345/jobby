@@ -2,7 +2,7 @@ import React from 'react'
 import Common from '../Common'
 import TextArea from '../TextArea'
 import styled from 'styled-components'
-import { setFromText, handlePrestoWikiTable, setToText } from "../../reducers/WikiTable";
+import { handleSetFromText, handlePrestoWikiTable, handleSetToText } from "../../reducers/WikiTable";
 import { connect } from 'react-redux'
 import transformCreateToWiki from "../../reducers/WikiTable";
 
@@ -18,13 +18,13 @@ class WikiTableComponent extends React.Component {
     handleFromTextChange = (evt) => {
         const { dispatch } = this.props
         const text = evt.target.value
-        dispatch(setFromText(text))
+        dispatch(handleSetFromText(text))
     }
 
     handleToTextChange = (evt) => {
         const { dispatch } = this.props
         const text = evt.target.value
-        dispatch(setToText(text))
+        dispatch(handleSetToText(text))
     }
 
     render() {

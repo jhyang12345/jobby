@@ -7,6 +7,7 @@ let defaultState = {
     pending: false,
     translationComplete: false,
     succeeded: false, // only matters if translationComplete is true
+    updating: false,
 }
 
 const UPDATE_FROM_TEXT_WIKI_TABLE = "UPDATE_FROM_TEXT_WIKI_TABLE"
@@ -15,6 +16,13 @@ export function setFromText(text) {
     return {
         type: UPDATE_FROM_TEXT_WIKI_TABLE,
         text,
+    }
+}
+
+export function handleSetFromText(text) {
+    return (dispatch) => {
+        dispatch(setUpdating(true))
+        dispatch(setFromText(text))
     }
 }
 
@@ -27,6 +35,13 @@ export function setToText(text) {
     }
 }
 
+export function handleSetToText(text) {
+    return (dispatch) => {
+        dispatch(setUpdating(true))
+        dispatch(setToText(text))
+    }
+}
+
 const SET_PENDING_WIKI_TABLE = "SET_PENDING_WIKI_TABLE"
 
 export function setPending(pending) {
@@ -36,14 +51,35 @@ export function setPending(pending) {
     }
 }
 
+const SET_SUCCEEDED_WIKI_TABLE = "SET_SUCCEEDED_WIKI_TABLE"
+
+export function setSucceeded(succeeded) {
+    return {
+        type: SET_SUCCEEDED_WIKI_TABLE,
+        succeeded,
+    }
+}
+
+const SET_UPDATING_WIKI_TABLE = "SET_UPDATING_WIKI_TABLE"
+
+export function setUpdating(updating) {
+    return {
+        type: SET_UPDATING_WIKI_TABLE,
+        updating
+    }
+}
+
 export function handlePrestoWikiTable(text) {
     return (dispatch) => {
         dispatch(setPending(true))
+        dispatch(setUpdating(false))
         return getWikiTable(text)
             .then(result => {
-                const { body } = result
+                console.log("Response: ", result)
+                const { body, flag } = result
                 dispatch(setToText(body))
                 dispatch(setPending(false))
+                dispatch(setSucceeded(flag))
             })
     }
 }
@@ -66,6 +102,18 @@ export default function transformCreateToWiki(state=defaultState, action) {
             return {
                 ...state,
                 pending: action.pending
+            }
+        }
+        case SET_SUCCEEDED_WIKI_TABLE: {
+            return {
+                ...state,
+                succeeded: action.succeeded
+            }
+        }
+        case SET_UPDATING_WIKI_TABLE: {
+            return {
+                ...state,
+                updating: action.updating,
             }
         }
         default:
