@@ -45,12 +45,23 @@ class TextAreaComponent extends React.Component {
 const TextAreaContainer = styled.div`
     flex: 1;
     height: ${props => props.height};
-    margin: ${props => props.focused === true ? "11px": "12px"};
+    margin: ${
+    props => {
+        if ( props.focused === true ) {
+            return "11px"
+        }
+        else if (props.succeeded === true && props.updating === false) {
+            return "11px"
+        } else if (props.succeeded === false && props.updating === false) {
+            return "11px"
+        } else {
+            return "12px"
+        }
+        }
+    };
     border-radius: 12px;
     border: ${
     props => {
-        console.log(props)
-        console.log((props.succeeded === false) && (props.updating === false))
         if ( props.focused === true ) {
             return "2px #afccd3 solid"
         }
