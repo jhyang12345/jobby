@@ -41,7 +41,7 @@ class RDSToHiveComponent extends React.Component {
                     height={'1200px'}
                     flexDirection={'column'}>
                     <TextArea.Component
-                        placeholder={"CREATE TABLE..."}
+                        placeholder={"CREATE TABLE RDS..."}
                         value={fromText}
                         onChange={this.handleFromTextChange}
                     >
@@ -52,7 +52,7 @@ class RDSToHiveComponent extends React.Component {
                         RUN
                     </RunButton>
                     <TextArea.Component
-                        placeholder={"WIKI MARKDOWN..."}
+                        placeholder={"SELECT SCRIPT..."}
                         value={toText}
                         onChange={this.handleToTextChange}
                         pending={pending}
