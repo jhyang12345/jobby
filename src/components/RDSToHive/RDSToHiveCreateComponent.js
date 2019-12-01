@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { handleSetFromText, handleSetToText, handleRdsToHiveCreate } from "../../reducers/RdsToHiveCreate"
 import { connect } from 'react-redux'
 
-class RDSToHiveComponent extends React.Component {
+class RDSToHiveCreateComponent extends React.Component {
 
     runButtonHandler = () => {
         const { dispatch, fromText } = this.props
@@ -105,4 +105,4 @@ const mapStateToProps = ({transformRDSToHiveCreate}) => {
     }
 }
 
-export default connect(mapStateToProps)(RDSToHiveComponent)
+export default connect(mapStateToProps)(RDSToHiveCreateComponent)

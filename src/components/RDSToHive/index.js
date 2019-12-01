@@ -1,7 +1,7 @@
-import RDSToHiveComponent from "./RDSToHiveComponent"
+import RDSToHiveCreateComponent from "./RDSToHiveCreateComponent"
 
 const RDSToHive = {
-    Component: RDSToHiveComponent,
+    CreateComponent: RDSToHiveCreateComponent,
 }
 
 export default RDSToHive
