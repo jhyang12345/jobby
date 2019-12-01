@@ -2,32 +2,38 @@ import React from 'react'
 import Common from '../Common'
 import TextArea from '../TextArea'
 import styled from 'styled-components'
-import { setFromText, setToText, handleRDSToHiveCreate } from "../../reducers/TransformRDSHive"
+import { handleSetFromText, handleSetToText, handleRdsToHiveCreate } from "../../reducers/RdsToHiveCreate"
 import { connect } from 'react-redux'
 
 class RDSToHiveComponent extends React.Component {
 
     runButtonHandler = () => {
-        const { dispatch } = this.props
+        const { dispatch, fromText } = this.props
 
         console.log("Button Clicked")
-        dispatch(handleRDSToHiveCreate())
+        dispatch(handleRdsToHiveCreate(fromText))
     }
 
     handleFromTextChange = (evt) => {
         const { dispatch } = this.props
         const text = evt.target.value
-        dispatch(setFromText(text))
+        dispatch(handleSetFromText(text))
     }
 
     handleToTextChange = (evt) => {
         const { dispatch } = this.props
         const text = evt.target.value
-        dispatch(setToText(text))
+        dispatch(handleSetToText(text))
     }
 
     render() {
-        const { fromText, toText } = this.props
+        const {
+            fromText,
+            toText,
+            pending,
+            succeeded,
+            updating,
+        } = this.props
 
         return (
             <PageContainer>
@@ -35,20 +41,24 @@ class RDSToHiveComponent extends React.Component {
                     height={'1200px'}
                     flexDirection={'column'}>
                     <TextArea.Component
-                        placeholder={"CREATE TABLE"}
+                        placeholder={"CREATE TABLE..."}
                         value={fromText}
                         onChange={this.handleFromTextChange}
-                        >
+                    >
                     </TextArea.Component>
                     <RunButton
                         onClick={this.runButtonHandler}
-                        >
+                    >
                         RUN
                     </RunButton>
                     <TextArea.Component
-                        placeholder={"CREATE TABLE"}
+                        placeholder={"WIKI MARKDOWN..."}
                         value={toText}
                         onChange={this.handleToTextChange}
+                        pending={pending}
+                        succeeded={succeeded}
+                        updating={updating}
+                        enableCopy={true}
                     >
                     </TextArea.Component>
                 </TextArea.Container>
@@ -78,11 +88,21 @@ const RunButton = styled.div`
   }
 `
 
-const mapStateToProps = ({transformRDSHive}) => {
-    const { fromText, toText } = transformRDSHive
+const mapStateToProps = ({transformRDSToHiveCreate}) => {
+    const {
+        fromText,
+        toText,
+        pending,
+        succeeded,
+        updating
+    } = transformRDSToHiveCreate
     return {
         fromText,
         toText,
+        pending,
+        succeeded,
+        updating,
     }
 }
+
 export default connect(mapStateToProps)(RDSToHiveComponent)

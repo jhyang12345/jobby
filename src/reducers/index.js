@@ -1,8 +1,8 @@
 import { combineReducers} from "redux"
-import transformRDSHive from "./TransformRDSHive";
+import rdsToHiveCreate from "./RdsToHiveCreate";
 import transformCreateToWiki from "./WikiTable";
 
 export default combineReducers({
-    transformRDSHive,
+    transformRDSToHiveCreate: rdsToHiveCreate,
     transformCreateToWiki,
 })
