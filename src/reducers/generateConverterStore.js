@@ -17,23 +17,23 @@ export function setFromText(text) {
     }
 }
 
-export function handleSetFromText(text) {
+export function handleSetFromText(text, suffix) {
     return (dispatch) => {
-        dispatch(setUpdating(true))
-        dispatch(setFromText(text))
+        dispatch(setUpdating(true, suffix))
+        dispatch(setFromText(text, suffix))
     }
 }
 
 const UPDATE_TO_TEXT = "UPDATE_TO_TEXT"
 
-export function setToText(text) {
+export function setToText(text, suffix) {
     return {
         type: UPDATE_TO_TEXT,
         text,
     }
 }
 
-export function handleSetToText(text) {
+export function handleSetToText(text, suffix) {
     return (dispatch) => {
         dispatch(setUpdating(true))
         dispatch(setToText(text))
@@ -42,7 +42,7 @@ export function handleSetToText(text) {
 
 const SET_PENDING = "SET_PENDING"
 
-export function setPending(pending) {
+export function setPending(pending, suffix) {
     return {
         type: SET_PENDING,
         pending
@@ -51,7 +51,7 @@ export function setPending(pending) {
 
 const SET_SUCCEEDED = "SET_SUCCEEDED"
 
-export function setSucceeded(succeeded) {
+export function setSucceeded(succeeded, suffix) {
     return {
         type: SET_SUCCEEDED,
         succeeded,
@@ -60,25 +60,25 @@ export function setSucceeded(succeeded) {
 
 const SET_UPDATING = "SET_UPDATING"
 
-export function setUpdating(updating) {
+export function setUpdating(updating, suffix) {
     return {
         type: SET_UPDATING,
         updating
     }
 }
 
-export function handleFetchFunction(text, requestFunction) {
+export function handleFetchFunction(text, requestFunction, suffix) {
     return (dispatch) => {
-        dispatch(setPending(true))
+        dispatch(setPending(true, suffix))
 
         return requestFunction(text)
             .then(result => {
                 console.log("Response: ", result)
                 const { body, flag } = result
-                dispatch(setToText(body))
-                dispatch(setPending(false))
-                dispatch(setUpdating(false))
-                dispatch(setSucceeded(flag))
+                dispatch(setToText(body, suffix))
+                dispatch(setPending(false, suffix))
+                dispatch(setUpdating(false, suffix))
+                dispatch(setSucceeded(flag, suffix))
             })
     }
 }
