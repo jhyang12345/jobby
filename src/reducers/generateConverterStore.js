@@ -10,9 +10,9 @@ let defaultState = {
 
 const UPDATE_FROM_TEXT = "UPDATE_FROM_TEXT"
 
-export function setFromText(text) {
+export function setFromText(text, suffix) {
     return {
-        type: UPDATE_FROM_TEXT,
+        type: addFormattedSuffix(UPDATE_FROM_TEXT, suffix),
         text,
     }
 }
@@ -28,15 +28,15 @@ const UPDATE_TO_TEXT = "UPDATE_TO_TEXT"
 
 export function setToText(text, suffix) {
     return {
-        type: UPDATE_TO_TEXT,
+        type: addFormattedSuffix(UPDATE_TO_TEXT, suffix),
         text,
     }
 }
 
 export function handleSetToText(text, suffix) {
     return (dispatch) => {
-        dispatch(setUpdating(true))
-        dispatch(setToText(text))
+        dispatch(setUpdating(true, suffix))
+        dispatch(setToText(text, suffix))
     }
 }
 
@@ -44,7 +44,7 @@ const SET_PENDING = "SET_PENDING"
 
 export function setPending(pending, suffix) {
     return {
-        type: SET_PENDING,
+        type: addFormattedSuffix(SET_PENDING, suffix),
         pending
     }
 }
@@ -53,7 +53,7 @@ const SET_SUCCEEDED = "SET_SUCCEEDED"
 
 export function setSucceeded(succeeded, suffix) {
     return {
-        type: SET_SUCCEEDED,
+        type: addFormattedSuffix(SET_SUCCEEDED, suffix),
         succeeded,
     }
 }
@@ -62,7 +62,7 @@ const SET_UPDATING = "SET_UPDATING"
 
 export function setUpdating(updating, suffix) {
     return {
-        type: SET_UPDATING,
+        type: addFormattedSuffix(SET_UPDATING, suffix),
         updating
     }
 }
