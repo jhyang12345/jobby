@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const apiEndPoint = 'http://localhost:8000'
+import { apiEndPoint } from "./apiEndPoint";
 
 async function dummyFunction() {
     return new Promise(
