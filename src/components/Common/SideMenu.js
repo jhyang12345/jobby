@@ -30,16 +30,17 @@ class SideMenu extends React.Component {
             </Menu.Item>
             <Menu.Item key="2"
                onClick={this.generateMenuClickHandler("/rds_to_hive/select")}>
-                Select Table</Menu.Item>
+                Select Table
+            </Menu.Item>
           </StyledSubMenu>
           <StyledSubMenu key="g2" title="Hive to RDS">
             <Menu.Item key="3"
                onClick={this.generateMenuClickHandler("/hive_to_rds/create")}>
-                Create Table
+                <LineThroughSpan>Create Table</LineThroughSpan>
             </Menu.Item>
             <Menu.Item key="4"
                onClick={this.generateMenuClickHandler("/hive_to_rds/select")}>
-                Select Table
+                <LineThroughSpan>Select Table</LineThroughSpan>
             </Menu.Item>
           </StyledSubMenu>
           <StyledSubMenu key="g3" title="Wiki Table"
@@ -69,6 +70,10 @@ const StyledSubMenu = styled(SubMenu)`
   &:hover {
     border-bottom-color: #FFF !important;
   }
+`
+
+const LineThroughSpan = styled.span`
+  text-decoration: line-through;
 `
 
 export default withRouter(SideMenu)

@@ -30,7 +30,6 @@ function App() {
                           <Route path="/hive_to_rds/create" exact component={RDSToHive.CreateComponent} />
                           <Route path="/hive_to_rds/select" exact component={RDSToHive.CreateComponent} />
                           <Route path="/wiki-table" exact component={WikiTable.Component} />
-
                       </Common.Container>
                   </AppContainer>
               </div>
