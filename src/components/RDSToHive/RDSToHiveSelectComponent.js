@@ -2,8 +2,11 @@ import React from 'react'
 import Common from '../Common'
 import TextArea from '../TextArea'
 import styled from 'styled-components'
+import { handleSetFromText, handleSetToText, handleFetchFunction } from "../../reducers/generateConverterStore"
 
 import { connect } from 'react-redux'
+
+const SELECT_SUFFIX = 'RDS_TO_HIVE_SELECT'
 
 class RDSToHiveSelectComponent extends React.Component {
 
@@ -11,19 +14,19 @@ class RDSToHiveSelectComponent extends React.Component {
         const { dispatch, fromText } = this.props
 
         console.log("Button Clicked")
-        dispatch(handleRdsToHiveCreate(fromText))
+        dispatch(handleFetchFunction(fromText, SELECT_SUFFIX))
     }
 
     handleFromTextChange = (evt) => {
         const { dispatch } = this.props
         const text = evt.target.value
-        dispatch(handleSetFromText(text))
+        dispatch(handleSetFromText(text, SELECT_SUFFIX))
     }
 
     handleToTextChange = (evt) => {
         const { dispatch } = this.props
         const text = evt.target.value
-        dispatch(handleSetToText(text))
+        dispatch(handleSetToText(text, SELECT_SUFFIX))
     }
 
     render() {
@@ -88,14 +91,14 @@ const RunButton = styled.div`
   }
 `
 
-const mapStateToProps = ({transformRDSToHiveCreate}) => {
+const mapStateToProps = ({transformRDSToHiveSelect}) => {
     const {
         fromText,
         toText,
         pending,
         succeeded,
         updating
-    } = transformRDSToHiveCreate
+    } = transformRDSToHiveSelect
     return {
         fromText,
         toText,
@@ -105,4 +108,4 @@ const mapStateToProps = ({transformRDSToHiveCreate}) => {
     }
 }
 
-export default connect(mapStateToProps)(RDSToHiveCreateComponent)
+export default connect(mapStateToProps)(RDSToHiveSelectComponent)

@@ -52,7 +52,7 @@ class RDSToHiveCreateComponent extends React.Component {
                         RUN
                     </RunButton>
                     <TextArea.Component
-                        placeholder={"SELECT SCRIPT..."}
+                        placeholder={"CREATE SCRIPT..."}
                         value={toText}
                         onChange={this.handleToTextChange}
                         pending={pending}

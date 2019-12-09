@@ -88,7 +88,7 @@ function addFormattedSuffix(action, suffix) {
 }
 
 export default function generateConverterStore(state=defaultState, actionSuffix) {
-    return (state, action) => {
+    return (state=defaultState, action) => {
         switch (action.type) {
             case addFormattedSuffix(UPDATE_FROM_TEXT, actionSuffix): {
                 return {

@@ -24,9 +24,9 @@ function App() {
                   <Header />
                   <AppContainer>
                       <Common.Container>
-                          <Route path="/" exact component={RDSToHive.Component} />
+                          <Route path="/" exact component={RDSToHive.SelectComponent} />
                           <Route path="/rds_to_hive/create" exact component={RDSToHive.CreateComponent} />
-                          <Route path="/rds_to_hive/select" exact component={RDSToHive.CreateComponent} />
+                          <Route path="/rds_to_hive/select" exact component={RDSToHive.SelectComponent} />
                           <Route path="/hive_to_rds/create" exact component={RDSToHive.CreateComponent} />
                           <Route path="/hive_to_rds/select" exact component={RDSToHive.CreateComponent} />
                           <Route path="/wiki-table" exact component={WikiTable.Component} />
