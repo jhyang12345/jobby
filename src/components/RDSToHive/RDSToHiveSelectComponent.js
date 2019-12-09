@@ -3,6 +3,7 @@ import Common from '../Common'
 import TextArea from '../TextArea'
 import styled from 'styled-components'
 import { handleSetFromText, handleSetToText, handleFetchFunction } from "../../reducers/generateConverterStore"
+import { getRdsToHiveSelect } from '../../utils/requestHandler'
 
 import { connect } from 'react-redux'
 
@@ -14,7 +15,7 @@ class RDSToHiveSelectComponent extends React.Component {
         const { dispatch, fromText } = this.props
 
         console.log("Button Clicked")
-        dispatch(handleFetchFunction(fromText, SELECT_SUFFIX))
+        dispatch(handleFetchFunction(fromText, getRdsToHiveSelect, SELECT_SUFFIX))
     }
 
     handleFromTextChange = (evt) => {
