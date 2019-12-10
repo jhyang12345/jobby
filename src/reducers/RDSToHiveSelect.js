@@ -1,6 +1,6 @@
 import generateConverterStore from './generateConverterStore'
 
-const actionSuffix =  "RDS_TO_HIVE_SELECT"
+export const actionSuffix =  "RDS_TO_HIVE_SELECT"
 
 let defaultState = {
     fromText: "",

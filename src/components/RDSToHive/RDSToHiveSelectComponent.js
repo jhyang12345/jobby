@@ -7,7 +7,7 @@ import { getRdsToHiveSelect } from '../../utils/requestHandler'
 
 import { connect } from 'react-redux'
 
-const SELECT_SUFFIX = 'RDS_TO_HIVE_SELECT'
+import { actionSuffix } from "../../reducers/RDSToHiveSelect";
 
 class RDSToHiveSelectComponent extends React.Component {
 
@@ -15,19 +15,19 @@ class RDSToHiveSelectComponent extends React.Component {
         const { dispatch, fromText } = this.props
 
         console.log("Button Clicked")
-        dispatch(handleFetchFunction(fromText, getRdsToHiveSelect, SELECT_SUFFIX))
+        dispatch(handleFetchFunction(fromText, getRdsToHiveSelect, actionSuffix))
     }
 
     handleFromTextChange = (evt) => {
         const { dispatch } = this.props
         const text = evt.target.value
-        dispatch(handleSetFromText(text, SELECT_SUFFIX))
+        dispatch(handleSetFromText(text, actionSuffix))
     }
 
     handleToTextChange = (evt) => {
         const { dispatch } = this.props
         const text = evt.target.value
-        dispatch(handleSetToText(text, SELECT_SUFFIX))
+        dispatch(handleSetToText(text, actionSuffix))
     }
 
     render() {

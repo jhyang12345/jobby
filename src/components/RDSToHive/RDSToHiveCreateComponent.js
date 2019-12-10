@@ -2,7 +2,10 @@ import React from 'react'
 import Common from '../Common'
 import TextArea from '../TextArea'
 import styled from 'styled-components'
-import { handleSetFromText, handleSetToText, handleRdsToHiveCreate } from "../../reducers/RdsToHiveCreate"
+import { handleSetFromText, handleSetToText, handleFetchFunction } from "../../reducers/generateConverterStore"
+import { getRdsToHiveCreate } from '../../utils/requestHandler'
+import { actionSuffix } from "../../reducers/RdsToHiveCreate";
+
 import { connect } from 'react-redux'
 
 class RDSToHiveCreateComponent extends React.Component {
@@ -11,19 +14,19 @@ class RDSToHiveCreateComponent extends React.Component {
         const { dispatch, fromText } = this.props
 
         console.log("Button Clicked")
-        dispatch(handleRdsToHiveCreate(fromText))
+        dispatch(handleFetchFunction(fromText, getRdsToHiveCreate, actionSuffix))
     }
 
     handleFromTextChange = (evt) => {
         const { dispatch } = this.props
         const text = evt.target.value
-        dispatch(handleSetFromText(text))
+        dispatch(handleSetFromText(text, actionSuffix))
     }
 
     handleToTextChange = (evt) => {
         const { dispatch } = this.props
         const text = evt.target.value
-        dispatch(handleSetToText(text))
+        dispatch(handleSetToText(text, actionSuffix))
     }
 
     render() {
