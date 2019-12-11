@@ -8,6 +8,7 @@ class HeaderComponent extends Component {
             <Header>
                 <InnerHeader>
                     <Title>Jobby</Title>
+                    <SubTitle></SubTitle>
                     <Common.SideMenu />
                 </InnerHeader>
 
@@ -42,6 +43,16 @@ const Title = styled.span`
   display: inline-block;
   height: 100%;
   padding: 0px 16px;
+  vertical-align: top;
+`
+
+const SubTitle = styled.span`
+  display: inline-block;
+  height: 100%;
+  opacity: 0.7;
+  padding: 0px 12px;
+  font-size: 16px;
+  vertical-align: top;
 `
 
 export default HeaderComponent
