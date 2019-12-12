@@ -4,14 +4,36 @@ import styled from 'styled-components'
 import { withRouter } from 'react-router-dom'
 
 class HeaderComponent extends Component {
-    render() {
+
+    getSubTitle = () => {
         const { location } = this.props
+        const { pathname } = location
+
+        let subTitle = ""
+        switch (pathname) {
+            case "/rds_to_hive/create":
+                subTitle = "RDS To Hive Create"
+                break
+            case "/rds_to_hive/select":
+                subTitle = "RDS To Hive Select"
+                break
+            case "/wiki-table":
+                subTitle = "Wiki-Table"
+                break
+            default:
+                subTitle = "RDS To Hive Create"
+        }
+        return subTitle
+    }
+
+    render() {
+
         console.log(this.props)
         return (
             <Header>
                 <InnerHeader>
                     <Title>Jobby</Title>
-                    <SubTitle></SubTitle>
+                    <SubTitle>{this.getSubTitle()}</SubTitle>
                     <Common.SideMenu />
                 </InnerHeader>
 
