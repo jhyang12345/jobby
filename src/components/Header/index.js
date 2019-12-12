@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import Common from '../Common'
 import styled from 'styled-components'
+import { withRouter } from 'react-router-dom'
 
 class HeaderComponent extends Component {
     render() {
+        const { location } = this.props
+        console.log(this.props)
         return (
             <Header>
                 <InnerHeader>
@@ -55,4 +58,4 @@ const SubTitle = styled.span`
   vertical-align: top;
 `
 
-export default HeaderComponent
+export default withRouter(HeaderComponent)
