@@ -15,7 +15,7 @@ const pageModelSelector = createSelector(
 )
 
 const ContainerComponent = (props) => {
-    const pageModel = useSelector(pageModelSelector, isEqual)
+    const pageModel = useSelector(selectPageModelStore, isEqual)
     const { pageDict } = pageModel
 
     const dispatch = useDispatch()
