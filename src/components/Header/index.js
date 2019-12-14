@@ -28,7 +28,6 @@ class HeaderComponent extends Component {
 
     render() {
 
-        console.log(this.props)
         return (
             <Header>
                 <InnerHeader>

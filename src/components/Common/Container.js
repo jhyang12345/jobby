@@ -7,13 +7,6 @@ import isEqual from 'lodash.isequal'
 
 const selectPageModelStore = state => state.pageModelStore
 
-const pageModelSelector = createSelector(
-    [selectPageModelStore],
-    (pageModelStore) => {
-        return pageModelStore
-    }
-)
-
 const ContainerComponent = (props) => {
     const pageModel = useSelector(selectPageModelStore, isEqual)
     const { pageDict } = pageModel
