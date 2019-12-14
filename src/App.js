@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import './App.css';
@@ -12,7 +11,6 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducer from './reducers'
 import middleware from './middleware'
-
 
 const store = createStore(reducer, middleware)
 

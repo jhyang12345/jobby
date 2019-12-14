@@ -1,6 +1,4 @@
 import React from 'react'
-import Common from '../Common'
-import TextArea from '../TextArea'
 import styled from 'styled-components'
 
 const maximumContainerWidth = 1000

@@ -1,3 +1,5 @@
+import { getPageDict } from "../utils/requestHandler";
+
 export const SET_PAGE_MODEL = "SET_PAGE_MODEL"
 
 let defaultState = {
@@ -31,6 +33,17 @@ export function setPageModel(pageModel) {
     return {
         type: SET_PAGE_MODEL,
         pageModel,
+    }
+}
+
+export function handleFetchPageModel() {
+    return (dispatch) => {
+        return getPageDict()
+            .then(result => {
+                const { body, flag } = result
+
+                dispatch(setPageModel(body["page_dict"]))
+            })
     }
 }
 

@@ -18,6 +18,16 @@ export async function getParsedResult(text) {
     return dummyFunction()
 }
 
+export async function getPageDict() {
+    const url = apiEndPoint + "/fetch_page_dict"
+    const headers = {
+        'Access-Control-Allow-Origin': true,
+        'Content-Type': 'application/json'
+    }
+    const response = await axios.get(url, {headers})
+    return response.data
+}
+
 export async function getWikiTable(text) {
     const url = apiEndPoint + "/create_wiki"
     console.log("Text passed", text)
