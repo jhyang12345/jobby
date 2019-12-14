@@ -27,7 +27,7 @@ let defaultState = {
             }
         ]
     },
-    "pathMap": {
+    "pageMap": {
 
     }
 }
@@ -49,10 +49,10 @@ export function handleFetchPageModel() {
     }
 }
 
-const getPathMap = (pageModel) => {
+const getpageMap = (pageModel) => {
     let stack = [pageModel]
 
-    const pathMap = {
+    const pageMap = {
 
     }
 
@@ -64,7 +64,7 @@ const getPathMap = (pageModel) => {
             }
         } else if (obj instanceof Object) {
             if (Object.keys(obj).includes("url")) {
-                pathMap[obj["url"]] = {
+                pageMap[obj["url"]] = {
                     "title": obj["title"],
                     "id": obj["id"]
                 }
@@ -75,8 +75,8 @@ const getPathMap = (pageModel) => {
             }
         }
     }
-    console.log(pathMap)
-    return pathMap
+    console.log(pageMap)
+    return pageMap
 }
 
 export default function pageModelStore(state = defaultState, action) {
@@ -85,7 +85,7 @@ export default function pageModelStore(state = defaultState, action) {
             return {
                 ...state,
                 pageDict: action.pageModel,
-                pathMap: getPathMap(action.pageModel),
+                pageMap: getpageMap(action.pageModel),
             }
         }
         default:

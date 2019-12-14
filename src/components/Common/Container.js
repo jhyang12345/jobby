@@ -7,9 +7,15 @@ import isEqual from 'lodash.isequal'
 
 const selectPageModelStore = state => state.pageModelStore
 
+const generatePageDict = (pageDict) => {
+    return (
+        <div>Rendered?.?</div>
+    )
+}
+
 const ContainerComponent = (props) => {
     const pageModel = useSelector(selectPageModelStore, isEqual)
-    const { pageDict } = pageModel
+    const { pageDict, pageMap } = pageModel
 
     const dispatch = useDispatch()
 
@@ -18,6 +24,7 @@ const ContainerComponent = (props) => {
     return (
         <Container>
             {props.children}
+            {generatePageDict(pageMap)}
         </Container>
     )
 }
