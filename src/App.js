@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import styled from 'styled-components'
 import './App.css';
@@ -16,7 +16,8 @@ import middleware from './middleware'
 const store = createStore(reducer, middleware)
 
 function App() {
-  return (
+
+    return (
       <Provider store={store}>
           <Router>
               <div className="App">
@@ -36,7 +37,7 @@ function App() {
           </Router>
       </Provider>
 
-  );
+    );
 }
 
 const AppContainer = styled.div`
