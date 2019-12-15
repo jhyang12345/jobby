@@ -7,9 +7,9 @@ import isEqual from 'lodash.isequal'
 
 const selectPageModelStore = state => state.pageModelStore
 
-const generatePageDict = (pageDict) => {
+const generatePageDict = (pageMap) => {
     return (
-        <div>Rendered?.?</div>
+        <div></div>
     )
 }
 
