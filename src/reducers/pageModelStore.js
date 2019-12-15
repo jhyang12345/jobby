@@ -24,7 +24,7 @@ let defaultState = {
             },
             {
                 "title": "Wiki Table",
-                "url": "/create_wiki",
+                "url": "/wiki-table",
                 "id": "wiki_table"
             }
         ]
