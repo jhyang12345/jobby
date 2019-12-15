@@ -16,39 +16,46 @@ const generateMenuClickHandler = (props, toLink) => {
     }
 }
 
-const generateMenuComponents = () => {
+const generateMenuComponents = ({pageDict, pageMap}, props) => {
 
+    const { menus } = pageDict
+    return (
+        <StyledMenu
+            mode="horizontal"
+        >
+            {
+                menus.map(
+                    menu => {
+                        if (Object.keys(menu).includes("subMenus")) {
+                            return (
+                                <StyledSubMenu key={menu.title} title={menu.title}>
+                                    {menu.subMenus.map(subMenu =>
+                                        <Menu.Item key={subMenu.id}
+                                            onClick={generateMenuClickHandler(props, subMenu.url)}>
+                                            {subMenu.title}
+                                        </Menu.Item>
+                                    )}
+                                </StyledSubMenu>
+                            )
+                        } else {
+                            return (
+                                <StyledSubMenu key={menu.title} title={menu.title}
+                                   onTitleClick={generateMenuClickHandler(props, menu.url)}>
+                                </StyledSubMenu>
+                            )
+                        }
+                    }
+                )
+            }
+        </StyledMenu>
+    )
 }
 
 const TopMenu = (props) => {
+    const pageModel = useSelector(selectPageModelStore)
+
     return (
-      <StyledMenu
-        mode="horizontal"
-      >
-          <StyledSubMenu key="g1" title="RDS to Hive">
-            <Menu.Item key="1"
-               onClick={generateMenuClickHandler(props, "/rds_to_hive/create")}>
-               Create Table
-            </Menu.Item>
-            <Menu.Item key="2"
-               onClick={generateMenuClickHandler(props, "/rds_to_hive/select")}>
-                Select Table
-            </Menu.Item>
-          </StyledSubMenu>
-          <StyledSubMenu key="g2" title="Hive to RDS">
-            <Menu.Item key="3"
-               onClick={generateMenuClickHandler(props, "/hive_to_rds/create")}>
-                <LineThroughSpan>Create Table</LineThroughSpan>
-            </Menu.Item>
-            <Menu.Item key="4"
-               onClick={generateMenuClickHandler(props,"/hive_to_rds/select")}>
-                <LineThroughSpan>Select Table</LineThroughSpan>
-            </Menu.Item>
-          </StyledSubMenu>
-          <StyledSubMenu key="g3" title="Wiki Table"
-            onTitleClick={generateMenuClickHandler(props, "/wiki-table")}>
-          </StyledSubMenu>
-      </StyledMenu>
+        generateMenuComponents(pageModel, props)
     );
 
 }
