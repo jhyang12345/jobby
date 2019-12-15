@@ -9,19 +9,21 @@ let defaultState = {
                 "title": "RDS To Hive",
                 "subMenus": [
                     {
-                        "title": "RDS To Hive Create",
+                        "title": "Create",
+                        "category": "RDS To Hive",
                         "url": "rds_to_hive/create",
                         "id": "rds_to_hive_create"
                     },
                     {
-                        "title": "RDS To Hive Select",
+                        "title": "Select",
+                        "category": "RDS To Hive",
                         "url": "rds_to_hive/select",
                         "id": "rds_to_hive_select"
                     }
                 ]
             },
             {
-                "title": "Wiki-Table",
+                "title": "Wiki Table",
                 "url": "create_wiki",
                 "id": "wiki_table"
             }

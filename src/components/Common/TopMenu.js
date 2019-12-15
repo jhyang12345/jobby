@@ -3,52 +3,54 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { Menu, Icon } from 'antd';
 import { withRouter } from 'react-router-dom'
+import {useSelector} from 'react-redux'
 
 const { SubMenu } = Menu;
 
-class TopMenu extends React.Component {
-  handleClick = e => {
-    console.log('click ', e);
-  };
+const selectPageModelStore = state => state.pageModelStore
 
-  generateMenuClickHandler = (toLink) => {
-      const { history } = this.props
-      return () => {
-          history.push(toLink)
-      }
-  }
+const generateMenuClickHandler = (props, toLink) => {
+    const { history } = props
+    return () => {
+        history.push(toLink)
+    }
+}
 
-  render() {
+const generateMenuComponents = () => {
+
+}
+
+const TopMenu = (props) => {
     return (
       <StyledMenu
         mode="horizontal"
       >
           <StyledSubMenu key="g1" title="RDS to Hive">
             <Menu.Item key="1"
-               onClick={this.generateMenuClickHandler("/rds_to_hive/create")}>
+               onClick={generateMenuClickHandler(props, "/rds_to_hive/create")}>
                Create Table
             </Menu.Item>
             <Menu.Item key="2"
-               onClick={this.generateMenuClickHandler("/rds_to_hive/select")}>
+               onClick={generateMenuClickHandler(props, "/rds_to_hive/select")}>
                 Select Table
             </Menu.Item>
           </StyledSubMenu>
           <StyledSubMenu key="g2" title="Hive to RDS">
             <Menu.Item key="3"
-               onClick={this.generateMenuClickHandler("/hive_to_rds/create")}>
+               onClick={generateMenuClickHandler(props, "/hive_to_rds/create")}>
                 <LineThroughSpan>Create Table</LineThroughSpan>
             </Menu.Item>
             <Menu.Item key="4"
-               onClick={this.generateMenuClickHandler("/hive_to_rds/select")}>
+               onClick={generateMenuClickHandler(props,"/hive_to_rds/select")}>
                 <LineThroughSpan>Select Table</LineThroughSpan>
             </Menu.Item>
           </StyledSubMenu>
           <StyledSubMenu key="g3" title="Wiki Table"
-            onTitleClick={this.generateMenuClickHandler("/wiki-table")}>
+            onTitleClick={generateMenuClickHandler(props, "/wiki-table")}>
           </StyledSubMenu>
       </StyledMenu>
     );
-  }
+
 }
 
 const StyledMenu = styled(Menu)`
