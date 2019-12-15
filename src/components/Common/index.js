@@ -1,4 +1,4 @@
-import SideMenu from './SideMenu'
+import SideMenu from './TopMenu'
 import Container from './Container'
 
 const obj = {

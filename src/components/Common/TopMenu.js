@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 
 const { SubMenu } = Menu;
 
-class SideMenu extends React.Component {
+class TopMenu extends React.Component {
   handleClick = e => {
     console.log('click ', e);
   };
@@ -76,5 +76,5 @@ const LineThroughSpan = styled.span`
   text-decoration: line-through;
 `
 
-export default withRouter(SideMenu)
+export default withRouter(TopMenu)
           
