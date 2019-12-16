@@ -10,7 +10,9 @@ const HomeComponent = (props) => {
 
     return (
         <HomeContainer>
-            
+            <MainTitle>
+                Example
+            </MainTitle>
         </HomeContainer>
     )
 }
@@ -20,7 +22,14 @@ const HomeContainer = styled.div`
   border: #ccc solid 1px;
   width: 900px;
   margin: 16px auto;
-  padding: 12px;
+  padding: 12px 16px;
+`
+
+const MainTitle = styled.div`
+  text-align: left;
+  font-weight: bold;
+  font-size: 24px;
+  color: #333;
 `
 
 export default HomeComponent
