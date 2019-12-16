@@ -11,6 +11,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducer from './reducers'
 import middleware from './middleware'
+import Home from './components/Home'
 
 const store = createStore(reducer, middleware)
 
@@ -24,7 +25,7 @@ function App() {
                   <Header />
                   <AppContainer>
                       <Common.Container>
-                          <Route path="/" exact component={RDSToHive.SelectComponent} />
+                          <Route path="/" exact component={Home.Home} />
                           <Route path="/rds_to_hive/create" exact component={RDSToHive.CreateComponent} />
                           <Route path="/rds_to_hive/select" exact component={RDSToHive.SelectComponent} />
                           <Route path="/wiki-table" exact component={WikiTable.Component} />

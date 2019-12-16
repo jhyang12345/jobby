@@ -21,7 +21,7 @@ class HeaderComponent extends Component {
                 subTitle = "Wiki-Table"
                 break
             default:
-                subTitle = "RDS To Hive Create"
+                subTitle = "Home"
         }
         return subTitle
     }
