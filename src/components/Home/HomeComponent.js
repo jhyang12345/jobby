@@ -13,6 +13,9 @@ const HomeComponent = (props) => {
             <MainTitle>
                 Example
             </MainTitle>
+            <SubTitle>
+                Text
+            </SubTitle>
         </HomeContainer>
     )
 }
@@ -29,7 +32,17 @@ const MainTitle = styled.div`
   text-align: left;
   font-weight: bold;
   font-size: 24px;
+  padding: 8px 0px;
   color: #333;
+`
+
+const SubTitle = styled.div`
+  text-align: left;
+  font-size: 18px;
+  color: #777;
+  padding: 8px 0px;
+  padding-left: 36px;
+  
 `
 
 export default HomeComponent
