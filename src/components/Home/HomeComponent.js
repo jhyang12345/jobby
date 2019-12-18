@@ -1,21 +1,40 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {useSelector} from "react-redux"
 import styled from 'styled-components'
+import {Link} from "react-router-dom";
 
 const selectPageModelStore = state => state.pageModelStore
 
+const generateHomeMenuComponents = ({pageDict, pageMap}) => {
+    const { menus } = pageDict
+    return (
+        <Fragment>
+            {
+                menus.map(menu => {
+                    return (
+                        <Fragment>
+                            <MainTitle>
+                                {menu.title}
+                            </MainTitle>
+                            {
+                                menu.subMenus !== undefined
+                                ? menu.subMenus.map(subMenu => <SubTitle>{subMenu.title}</SubTitle>)
+                                : null
+                            }
+                        </Fragment>
+                    )
+                })
+            }
+        </Fragment>
+    )
+}
+
 const HomeComponent = (props) => {
     const pageModel = useSelector(selectPageModelStore)
-    console.log(pageModel)
 
     return (
         <HomeContainer>
-            <MainTitle>
-                Example
-            </MainTitle>
-            <SubTitle>
-                Text
-            </SubTitle>
+            {generateHomeMenuComponents(pageModel)}
         </HomeContainer>
     )
 }
@@ -23,12 +42,13 @@ const HomeComponent = (props) => {
 const HomeContainer = styled.div`
   border-radius: 12px;
   border: #ccc solid 1px;
-  width: 900px;
+  width: 720px;
   margin: 16px auto;
   padding: 12px 16px;
 `
 
-const MainTitle = styled.div`
+const MainTitle = styled(Link)`
+  display: block;
   text-align: left;
   font-weight: bold;
   font-size: 24px;
@@ -36,13 +56,12 @@ const MainTitle = styled.div`
   color: #333;
 `
 
-const SubTitle = styled.div`
+const SubTitle = styled(Link)`
+  display: block;
   text-align: left;
   font-size: 18px;
   color: #777;
-  padding: 8px 0px;
-  padding-left: 36px;
-  
+  padding: 8px 0px 8px 36px;
 `
 
 export default HomeComponent
