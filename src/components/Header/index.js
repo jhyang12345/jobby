@@ -26,12 +26,18 @@ class HeaderComponent extends Component {
         return subTitle
     }
 
+    navigateToHome = () => {
+        const { history } = this.props
+
+        history.push("/")
+    }
+
     render() {
 
         return (
             <Header>
                 <InnerHeader>
-                    <Title>Jobby</Title>
+                    <Title onClick={this.navigateToHome}>Jobby</Title>
                     <SubTitle>{this.getSubTitle()}</SubTitle>
                     <Common.SideMenu />
                 </InnerHeader>
@@ -56,6 +62,10 @@ const Header = styled.div`
   text-align: left;
   padding: 0px 16px;
   box-shadow: 0px 1px 2px 2px rgba(0, 0, 0, 0.25);
+  
+  &:hover {
+    pointer: cursor;
+  }
 `;
 
 const InnerHeader = styled.div`
