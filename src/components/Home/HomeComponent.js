@@ -12,13 +12,22 @@ const generateHomeMenuComponents = ({pageDict, pageMap}) => {
             {
                 menus.map(menu => {
                     return (
-                        <Fragment>
-                            <MainTitle to={menu.url === undefined ? "/" : menu.url}>
+                        <Fragment
+                            key={menu.title}>
+                            <MainTitle
+                                to={menu.url === undefined ? "/" : menu.url}
+                                key={menu.title}
+                                disabled={menu.url === undefined}
+                                onClick={
+                                    menu.url === undefined
+                                    ? (evt) => evt.preventDefault()
+                                    : undefined
+                                }>
                                 {menu.title}
                             </MainTitle>
                             {
                                 menu.subMenus !== undefined
-                                ? menu.subMenus.map(subMenu => <SubTitle to={subMenu.url}>{subMenu.title}</SubTitle>)
+                                ? menu.subMenus.map(subMenu => <SubTitle key={subMenu.id} to={subMenu.url}>{subMenu.title}</SubTitle>)
                                 : null
                             }
                         </Fragment>
@@ -54,6 +63,9 @@ const MainTitle = styled(Link)`
   font-size: 24px;
   padding: 8px 0px;
   color: #333;
+  &[disabled] {
+    color: #333;
+  }
 `
 
 const SubTitle = styled(Link)`

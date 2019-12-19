@@ -64,7 +64,7 @@ const Header = styled.div`
   box-shadow: 0px 1px 2px 2px rgba(0, 0, 0, 0.25);
   
   &:hover {
-    pointer: cursor;
+    cursor: pointer;
   }
 `;
 
