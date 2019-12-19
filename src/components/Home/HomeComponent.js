@@ -13,12 +13,12 @@ const generateHomeMenuComponents = ({pageDict, pageMap}) => {
                 menus.map(menu => {
                     return (
                         <Fragment>
-                            <MainTitle>
+                            <MainTitle to={menu.url === undefined ? "/" : menu.url}>
                                 {menu.title}
                             </MainTitle>
                             {
                                 menu.subMenus !== undefined
-                                ? menu.subMenus.map(subMenu => <SubTitle>{subMenu.title}</SubTitle>)
+                                ? menu.subMenus.map(subMenu => <SubTitle to={subMenu.url}>{subMenu.title}</SubTitle>)
                                 : null
                             }
                         </Fragment>
