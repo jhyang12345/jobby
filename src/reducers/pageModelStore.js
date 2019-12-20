@@ -23,9 +23,16 @@ let defaultState = {
                 ]
             },
             {
-                "title": "Wiki Table",
-                "url": "/wiki-table",
-                "id": "wiki_table"
+                "title": "Wiki",
+                "id": "wiki_table",
+                "subMenus": [
+                    {
+                        "title": "Create Table",
+                        "category": "Wiki",
+                        "url": "/wiki-table",
+                        "id": "wiki_create_table"
+                    },
+                ]
             }
         ]
     },
